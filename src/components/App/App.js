@@ -1,24 +1,14 @@
 import React from "react";
-// import logo from './logo.svg';
+import BusinessList from "../BusinessList/BusinessList";
+// import SearchBar from "../SearchBar/SearchBar";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src="" className="App-logo" alt="" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>hungrii</h1>
+      {/* <SearchBar /> */}
+      <BusinessList />
     </div>
   );
 }
