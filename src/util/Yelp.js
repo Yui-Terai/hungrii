@@ -1,5 +1,4 @@
-const apiKey =
-  "eNotlmkbZ9L-5VkuhW_9x70xhjXb1y11IF3LkRS4fJrqdFfTFASXal4-Y12lv7sbgDy_jXXPlEA6TDrmYWlcO5qNmNgnood_jWa5ykrmb1AtYdatp8QrFtlB3XdwXXYx";
+const apiKey = `${process.env.REACT_APP_API_KEY}`;
 
 const Yelp = {
   search(term, location, sortBy) {
@@ -17,7 +16,7 @@ const Yelp = {
       .then(jsonResponse => {
         if (jsonResponse.businesses) {
           return jsonResponse.businesses.map(business => {
-              console.log(business);
+              console.log(jsonResponse);
             return {
               id: business.id,
               imageSrc: business.image_url,
