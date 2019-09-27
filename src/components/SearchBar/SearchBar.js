@@ -1,5 +1,5 @@
 import React from "react";
-import "./SearchBar.css";
+import "./SearchBar.scss";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -69,7 +69,7 @@ class SearchBar extends React.Component {
         </div>
         <div className="SearchBar-fields">
           <input
-            placeholder="Search Businesses"
+            placeholder="Type Keyword: (food/cuisine/restaurant)"
             onChange={this.handleTermChange}
           />
           <input placeholder="Where?" onChange={this.handleLocationChange} />

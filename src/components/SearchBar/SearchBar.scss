@@ -1,0 +1,132 @@
+@import "../../styles/variables.scss";
+
+.SearchBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30rem;
+  background: {
+    image: url("https://source.unsplash.com/E6HjQaB7UEA/1600x900");
+    size: cover;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+.SearchBar-sort-options {
+  ul {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.22rem;
+    color: #ffffff;
+  }
+
+  li {
+    cursor: pointer;
+    width: 4.33rem;
+    border-bottom: 1px solid #fff;
+    padding: 0 2.58rem 0.33rem 2.58rem;
+    line-height: 1.13;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.83rem;
+    transition: color 0.25s;
+    margin: 1rem;
+
+    &:hover {
+      color: rgba(#ffffff, 0.6);
+    }
+
+    &.active {
+      border-bottom: 1px solid $green;
+      color: $green;
+    }
+  }
+}
+
+.SearchBar-fields {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.88rem;
+
+  input {
+    width: 21rem;
+    padding: 0.66rem 1rem;
+    margin-right: 2.22rem;
+    border: 1px solid #fff;
+    border-radius: $border-radius;
+    font-size: 0.80rem;
+    font-weight: 500;
+
+    &last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.SearchBar-submit {
+  text-align: center;
+
+  a {
+    border-radius: $border-radius;
+    padding: 0.72rem 1.7rem;
+    background-color: $peach;
+    color: $white;
+    font-weight: 600;
+    transition: background-color 0.5s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: desaturate($peach, 20%);
+    }
+  }
+}
+
+/* Media query */
+
+@media only screen and (max-width: 600px) {
+  .SearchBar {
+    background-image: url("https://source.unsplash.com/XkQUu6xMiaI/1600x900");
+  }
+
+  .SearchBar-sort-options {
+    ul {
+      margin-left: 2rem;
+      margin-right: 2rem;
+      background-color: rgba(#c91f37, 0.35);
+      border-radius: $border-radius;
+    }
+    li {
+      padding: 0;
+    }
+  }
+
+  .SearchBar-fields {
+    flex-direction: column;
+    align-items: center;
+
+    input {
+      margin-right: 0;
+      margin-bottom: 0.86rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 375px) {
+  .SearchBar-fields input {
+    width: 17rem;
+  }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .SearchBar-fields input {
+    margin-right: 0.5rem;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .SearchBar-sort-options li {
+    font-size: 1.1rem;
+    text-shadow: 2px 2px saturate($peach, 80%);
+  }
+}
