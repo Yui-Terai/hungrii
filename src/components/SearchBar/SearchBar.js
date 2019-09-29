@@ -18,7 +18,8 @@ class SearchBar extends React.Component {
     this.handleSortByChange = this.handleSortByChange.bind(this);
     this.handleTermChange = this.handleTermChange.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
-    this.handleSearch = this.handleSearch.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   getSortByClass(sortByOption) {
@@ -37,7 +38,7 @@ class SearchBar extends React.Component {
     this.setState({ location: e.target.value });
   }
 
-  handleSearch(e) {
+  handleClick(e) {
     this.props.searchYelp(
       this.state.term,
       this.state.location,
@@ -46,11 +47,22 @@ class SearchBar extends React.Component {
     e.preventDefault();
   }
 
+  handleKeyDown(e) {
+    if (e.keyCode == 13) {
+      this.props.searchYelp(
+        this.state.term,
+        this.state.location,
+        this.state.sortBy
+      );
+      e.preventDefault();
+    }
+  }
+
   renderSortByOptions() {
     return Object.keys(this.sortByOptions).map(sortByOption => {
       let sortByOptionValue = this.sortByOptions[sortByOption];
       return (
-        <li 
+        <li
           key={sortByOptionValue}
           className={this.getSortByClass(sortByOptionValue)}
           onClick={this.handleSortByChange.bind(this, sortByOptionValue)}
@@ -71,10 +83,15 @@ class SearchBar extends React.Component {
           <input
             placeholder="Type Keyword: (food/cuisine/restaurant)"
             onChange={this.handleTermChange}
+            onKeyDown={this.handleKeyDown}
           />
-          <input placeholder="Where?" onChange={this.handleLocationChange} />
+          <input
+            placeholder="Where?"
+            onChange={this.handleLocationChange}
+            onKeyDown={this.handleKeyDown}
+          />
         </div>
-        <div className="SearchBar-submit" onClick={this.handleSearch}>
+        <div className="SearchBar-submit" onClick={this.handleClick}>
           <a>Let's Go</a>
         </div>
       </div>
